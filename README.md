@@ -1,6 +1,6 @@
-"# P3---Anticiper la consommation des bâtiments de Seattle (2016)" 
+# P3---Anticiper la consommation des bâtiments de Seattle (2016)
 
-"Des relevés minutieux ont été effectués par les agents de la ville en 2016. 
+Des relevés minutieux ont été effectués par les agents de la ville en 2016. 
 Voici les données et leur source (dossier 'datasets')
 Cependant, ces relevés sont coûteux à obtenir, et à partir de ceux déjà réalisés, 
 vous voulez tenter de prédire les émissions de CO2 et la consommation totale d’énergie de bâtiments 
@@ -16,4 +16,5 @@ Vous l'intégrerez dans la modélisation et jugerez de son intérêt.
 Voici un récapitulatif de votre mission :
 
 Réaliser une courte analyse exploratoire.
-Tester différents modèles de prédiction afin de répondre au mieux à la problématique."
+
+Tester différents modèles de prédiction afin de répondre au mieux à la problématique.
