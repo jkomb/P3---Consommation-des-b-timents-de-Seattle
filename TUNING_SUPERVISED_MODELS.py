@@ -6,7 +6,9 @@ __doc__ = """Ce module contient la définition des fonctions utiles à l'optimis
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-%matplotlib inline
+import seaborn as sns
+from sklearn.model_selection import learning_curve
+from sklearn.inspection import permutation_importance
 
 
 def plot_learning_curve(
@@ -166,3 +168,25 @@ def plot_learning_curve(
     axes[2].set_title("Performance of the model")
 
     return plt, test_scores
+
+def plot_features_importance(estimator, name_model, X_train, y_train, scoring=None):
+
+    results = permutation_importance(estimator, X_train, y_train, scoring=scoring)
+    
+    df_importance = pd.DataFrame({
+                        "Feature" : X_train.columns,
+                        "Importance" : results.importances_mean
+                    })
+    
+    df_importance = df_importance.sort_values("Importance").iloc[:50,:]
+      
+    fig = plt.subplots(figsize=(10, 8))
+    
+    plot = sns.barplot(data=df_importance, y=df_importance["Feature"], x=df_importance["Importance"])
+    
+    plt.title(name_model + " Features Importance", fontdict={ "fontsize": 16, "fontweight": "normal" })
+    plt.xlabel("Importance")
+    plt.ylabel("Features")
+    plt.tight_layout()
+    plt.savefig("img/" + name_model + "-feature-importance.png")
+    plt.show()
